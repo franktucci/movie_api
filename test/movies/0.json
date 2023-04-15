@@ -1,0 +1,31 @@
+{
+  "movie_id":0,
+  "title":"10 things i hate about you",
+  "top_characters": [
+    {
+      "character_id": 5,
+      "character": "KAT",
+      "num_lines": 155
+    },
+    {
+      "character_id": 9,
+      "character": "PATRICK",
+      "num_lines": 140
+    },
+    {
+      "character_id": 0,
+      "character": "BIANCA",
+      "num_lines": 98
+    },
+    {
+      "character_id": 2,
+      "character": "CAMERON",
+      "num_lines": 78
+    },
+    {
+      "character_id": 7,
+      "character": "MICHAEL",
+      "num_lines": 62
+    }
+  ]
+}

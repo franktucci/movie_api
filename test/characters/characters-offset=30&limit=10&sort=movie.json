@@ -1,0 +1,62 @@
+[
+  {
+    "character_id": 105,
+    "character": "EDDIE",
+    "movie": "8mm",
+    "number_of_lines": 51
+  },
+  {
+    "character_id": 106,
+    "character": "LONGDALE",
+    "movie": "8mm",
+    "number_of_lines": 21
+  },
+  {
+    "character_id": 107,
+    "character": "MALE VOICE",
+    "movie": "8mm",
+    "number_of_lines": 3
+  },
+  {
+    "character_id": 108,
+    "character": "MAX",
+    "movie": "8mm",
+    "number_of_lines": 54
+  },
+  {
+    "character_id": 109,
+    "character": "MRS CHRISTIAN",
+    "movie": "8mm",
+    "number_of_lines": 41
+  },
+  {
+    "character_id": 110,
+    "character": "MRS MATHEWS",
+    "movie": "8mm",
+    "number_of_lines": 39
+  },
+  {
+    "character_id": 111,
+    "character": "NUN",
+    "movie": "8mm",
+    "number_of_lines": 6
+  },
+  {
+    "character_id": 112,
+    "character": "POLITICIAN",
+    "movie": "8mm",
+    "number_of_lines": 3
+  },
+  {
+    "character_id": 113,
+    "character": "SALESPERSON",
+    "movie": "8mm",
+    "number_of_lines": 5
+  },
+  {
+    "character_id": 114,
+    "character": "WELLES",
+    "movie": "8mm",
+    "number_of_lines": 270
+  }
+]

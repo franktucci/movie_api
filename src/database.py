@@ -23,3 +23,11 @@ with open("lines.csv", mode="r", encoding="utf8") as csv_file:
         line['line_id']: line
         for line in csv.DictReader(csv_file, skipinitialspace=True)
     }
+
+line_counts = {}
+
+for conversation_id in conversations:
+    line_counts[conversation_id] = 0
+
+for line_id in lines:
+    line_counts[lines[line_id]['conversation_id']] += 1

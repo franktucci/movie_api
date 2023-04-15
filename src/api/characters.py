@@ -36,6 +36,7 @@ def get_character(id: str):
         gender = character['gender']
 
     conversations = {}
+
     for conversation_id in db.conversations:
         if db.conversations[conversation_id]['character1_id'] == id:
             recipient_id = db.conversations[conversation_id]['character2_id']
@@ -50,16 +51,15 @@ def get_character(id: str):
             conversations[recipient_id].append(db.conversations[conversation_id])
 
     top_conversations = []
-    for recipient_id in conversations:
-        count = 0
-        for conversation in conversations[recipient_id]:
-            for line_id in db.lines:
-                if db.lines[line_id]['conversation_id'] == conversation['conversation_id']:
-                    count += 1
 
+    for recipient_id in conversations:
         recipient_gender = None
         if db.characters[recipient_id]['gender'] != '':
             recipient_gender = db.characters[recipient_id]['gender']
+
+        count = 0
+        for conversation in conversations[recipient_id]:
+            count += db.line_counts[conversation['conversation_id']]
 
         top_conversations.append(
             {

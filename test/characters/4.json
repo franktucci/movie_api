@@ -1,0 +1,32 @@
+{
+  "character_id": 4,
+  "character": "JOEY",
+  "movie": "10 things i hate about you",
+  "gender": "M",
+  "top_conversations": [
+    {
+      "character_id": 9,
+      "character": "PATRICK",
+      "gender": "M",
+      "number_of_lines_together": 32
+    },
+    {
+      "character_id": 7,
+      "character": "MICHAEL",
+      "gender": "M",
+      "number_of_lines_together": 15
+    },
+    {
+      "character_id": 0,
+      "character": "BIANCA",
+      "gender": "F",
+      "number_of_lines_together": 14
+    },
+    {
+      "character_id": 5,
+      "character": "KAT",
+      "gender": "F",
+      "number_of_lines_together": 10
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+[
+  {
+    "movie_id": 514,
+    "movie_title" :"the shining",
+    "year": "1980",
+    "imdb_rating": 8.5,
+    "imdb_votes": 182077
+  },
+  {
+
+    "movie_id": 547,
+    "movie_title" :"terminator 2: judgment day",
+    "year": "1991",
+    "imdb_rating": 8.5,
+    "imdb_votes": 243230
+  },
+  {
+
+    "movie_id": 558,
+    "movie_title" :"the third man",
+    "year": "1949",
+    "imdb_rating": 8.5,
+    "imdb_votes": 51872
+  },
+  {
+
+    "movie_id": 566,
+    "movie_title" :"the pianist",
+    "year": "2002",
+    "imdb_rating": 8.5,
+    "imdb_votes": 138080
+  },
+  {
+    "movie_id": 3,
+    "movie_title" :"2001: a space odyssey",
+    "year": "1968",
+    "imdb_rating": 8.4,
+    "imdb_votes":163227
+  },
+  {
+    "movie_id": 16,
+    "movie_title" :"amadeus",
+    "year": "1984",
+    "imdb_rating": 8.4,
+    "imdb_votes": 99138
+  },
+  {
+    "movie_id": 40,
+    "movie_title" :"braveheart",
+    "year": "1995",
+    "imdb_rating": 8.4,
+    "imdb_votes": 245652
+  },
+  {
+    "movie_id": 53,
+    "movie_title" :"the elephant man",
+    "year": "1980",
+    "imdb_rating": 8.4,
+    "imdb_votes": 59625
+  },
+  {
+    "movie_id": 76,
+    "movie_title" :"gladiator",
+    "year": "2000",
+    "imdb_rating": 8.4,
+    "imdb_votes": 286067
+  },
+  {
+    "movie_id": 134,
+    "movie_title" :"metropolis",
+    "year": "1927",
+    "imdb_rating": 8.4,
+    "imdb_votes": 40730
+  }
+]
