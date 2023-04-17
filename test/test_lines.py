@@ -7,27 +7,62 @@ import json
 client = TestClient(app)
 
 
-# def test_get_line():
-#     response = client.get("/characters/7421")
-#     assert response.status_code == 200
-#
-#     with open("test/characters/7421.json", encoding="utf-8") as f:
-#         assert response.json() == json.load(f)
-#
-# def test_get_conversation():
-#     response = client.get("/characters/7421")
-#     assert response.status_code == 200
-#
-#     with open("test/characters/7421.json", encoding="utf-8") as f:
-#         assert response.json() == json.load(f)
-#
-# def test_lines():
-#     response = client.get("/characters/")
-#     assert response.status_code == 200
-#
-#     with open("test/characters/root.json", encoding="utf-8") as f:
-#         assert response.json() == json.load(f)
-#
-# def test_404():
-#     response = client.get("/characters/400")
-#     assert response.status_code == 404
+def test_get_line():
+    response = client.get("/lines/133")
+    assert response.status_code == 200
+
+    with open("test/lines/133.json", encoding="utf-8") as f:
+        assert response.json() == json.load(f)
+
+def test_get_line_2():
+    response = client.get("/lines/19757")
+    assert response.status_code == 200
+
+    with open("test/lines/19757.json", encoding="utf-8") as f:
+        assert response.json() == json.load(f)
+
+def test_get_conversation():
+    response = client.get("/conversations/16484")
+    assert response.status_code == 200
+
+    with open("test/lines/16484.json", encoding="utf-8") as f:
+        assert response.json() == json.load(f)
+
+def test_get_conversation_2():
+    response = client.get("/conversations/27564")
+    assert response.status_code == 200
+
+    with open("test/lines/27564.json", encoding="utf-8") as f:
+        assert response.json() == json.load(f)
+
+def test_lines():
+    response = client.get("/lines/")
+    assert response.status_code == 200
+
+    with open("test/lines/root.json", encoding="utf-8") as f:
+        assert response.json() == json.load(f)
+
+
+def test_sort_filter():
+    response = client.get("/lines/?name=amy&limit=10")
+    assert response.status_code == 200
+
+    with open(
+        "test/lines/lines-name=amy&limit=10.json",
+        encoding="utf-8",
+    ) as f:
+        assert response.json() == json.load(f)
+
+def test_sort_filter_2():
+    response = client.get("/lines/?text=said&offset=30&limit=10&sort=conversation")
+    assert response.status_code == 200
+
+    with open(
+        "test/lines/lines-text=said&offset=30&limit=10&sort=conversation.json",
+        encoding="utf-8",
+    ) as f:
+        assert response.json() == json.load(f)
+
+def test_404():
+    response = client.get("/lines/1")
+    assert response.status_code == 404

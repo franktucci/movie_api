@@ -29,7 +29,7 @@ def get_character(id: str):
 
     character = db.characters.get(id)
     if character is None:
-        raise HTTPException(status_code=404, detail="movie not found.")
+        raise HTTPException(status_code=404, detail="character not found.")
 
     gender = None
     if character['gender'] != '':

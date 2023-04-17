@@ -1,0 +1,26 @@
+{
+  "conversation_id": 27564,
+  "movie": "star trek: first contact",
+  "lines": [
+    {
+      "line_id": 540235,
+      "character": "PICARD",
+      "text": "Admiral... what's the status of the Borg fleet?"
+    },
+    {
+      "line_id": 540236,
+      "character": "ADMIRAL HAYES",
+      "text": "It's been destroyed. The Borg threat is over. Are you all right? The Enterprise disappeared from our sensors for a moment."
+    },
+    {
+      "line_id": 540237,
+      "character": "PICARD",
+      "text": "We're fine sir. It will take some... time to explain."
+    },
+    {
+      "line_id": 540238,
+      "character": "ADMIRAL HAYES",
+      "text": "I look forward to reading your report."
+    }
+  ]
+}
