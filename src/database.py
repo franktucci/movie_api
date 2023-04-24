@@ -52,6 +52,7 @@ def upload_new_log():
 
 # END PLACEHOLDER CODE
 
+
 def try_parse(type, val):
     try:
         return type(val)
