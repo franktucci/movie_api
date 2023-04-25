@@ -107,10 +107,10 @@ def add_conversation(movie_id: int, conversation: ConversationJson):
             raise HTTPException(status_code=422, detail="conversation/line character_id mismatch.")
         lines.append(
             {
-                "line_id": line_id,
-                "character_id": line.character_id,
-                "movie_id": movie_id,
-                "conversation_id": conversation_id,
+                "line_id": str(line_id),
+                "character_id": str(line.character_id),
+                "movie_id": str(movie_id),
+                "conversation_id": str(conversation_id),
                 "line_sort": sort,
                 "line_text": line.line_text
             }
@@ -120,21 +120,21 @@ def add_conversation(movie_id: int, conversation: ConversationJson):
 
     db.upload('lines.csv', lines)
     for line in lines:
-        db.lines[str(line['line_id'])] = line
+        db.lines[line['line_id']] = line
         db.line_counts[str(line['character_id'])] += 1
 
     conversation_data = {
-        "conversation_id": conversation_id,
-        "character1_id": conversation.character_1_id,
-        "character2_id": conversation.character_2_id,
-        "movie_id": movie_id
+        "conversation_id": str(conversation_id),
+        "character1_id": str(conversation.character_1_id),
+        "character2_id": str(conversation.character_2_id),
+        "movie_id": str(movie_id)
     }
     db.upload("conversations.csv", [conversation_data])
-    db.conversations[str(conversation_data['conversation_id'])] = conversation_data
+    db.conversations[conversation_data['conversation_id']] = conversation_data
 
     log_data = {
         "post_call_time": datetime.now(),
-        "movie_id_added_to": movie_id
+        "movie_id_added_to": str(movie_id)
     }
     db.upload("movie_conversations_log.csv", [log_data])
 

@@ -27,13 +27,13 @@ def test_404():
 
 def test_add_conversation():
     id = int(list(db.conversations)[-1]) + 1
-    response = client.post('movies/0/conversations/',
+    response = client.post('movies/3/conversations/',
         json={
-            'character_1_id': 0,
-            'character_2_id': 1,
+            'character_1_id': 49,
+            'character_2_id': 55,
             'lines': [
                 {
-                    'character_id': 0,
+                    'character_id': 49,
                     'line_text': 'testing...'
                 }
             ]
