@@ -40,44 +40,6 @@ def get_lines(line_id: str):
         'text': line['line_text']
     }
 
-@router.get("/conversations/{conversation_id}", tags=["conversations"])
-def get_conversation(conversation_id: str):
-    """
-    This endpoint returns a conversation by its identifier. For each conversation
-    it returns:
-    * `conversation_id`: the internal id of the conversation. Can be used to query the
-      `/conversations/{conversation_id}` endpoint.
-    * `movie`: The movie the line is from.
-    * `lines`: A list of lines that are a part of the conversation. The lines
-      are ordered by which the order they are said.
-
-    Each line is represented by a dictionary with the following keys:
-    * `line_id`: the internal id of the line.
-    * `character`: The name of the character speaking.
-    * `text`: The content of the line
-    """
-
-    conversation = db.conversations.get(conversation_id)
-    if conversation is None:
-        raise HTTPException(status_code=404, detail="line not found.")
-
-    lines = []
-
-    for line_id in db.lines:
-        if db.lines[line_id]['conversation_id'] == conversation_id:
-            lines.append(
-                {
-                    'line_id': int(line_id),
-                    'character': db.characters[db.lines[line_id]['character_id']]['name'],
-                    'text': db.lines[line_id]['line_text']
-                }
-            )
-
-    return {
-        'conversation_id': int(conversation_id),
-        'movie': db.movies[db.conversations[conversation_id]['movie_id']]['title'],
-        'lines': lines
-    }
 class line_sort_options(str, Enum):
     character = "character"
     movie_title = "movie"

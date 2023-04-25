@@ -21,20 +21,6 @@ def test_get_line_2():
     with open("test/lines/19757.json", encoding="utf-8") as f:
         assert response.json() == json.load(f)
 
-def test_get_conversation():
-    response = client.get("/conversations/16484")
-    assert response.status_code == 200
-
-    with open("test/lines/16484.json", encoding="utf-8") as f:
-        assert response.json() == json.load(f)
-
-def test_get_conversation_2():
-    response = client.get("/conversations/27564")
-    assert response.status_code == 200
-
-    with open("test/lines/27564.json", encoding="utf-8") as f:
-        assert response.json() == json.load(f)
-
 def test_lines():
     response = client.get("/lines/")
     assert response.status_code == 200
