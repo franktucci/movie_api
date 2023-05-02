@@ -4,6 +4,7 @@ from src.api.server import app
 
 import json
 from src import database as db
+import sqlalchemy as s
 
 client = TestClient(app)
 
@@ -26,7 +27,10 @@ def test_404():
     assert response.status_code == 404
 
 def test_add_conversation():
-    id = int(list(db.conversations)[-1]) + 1
+    stmt = (s.select(db.conversations.c.conversation_id).order_by(s.desc('conversation_id')))
+    with db.engine.connect() as conn:
+        conversations_result = conn.execute(stmt)
+    id = conversations_result.first().conversation_id + 1
     response = client.post('movies/3/conversations/',
         json={
             'character_1_id': 49,
@@ -41,10 +45,20 @@ def test_add_conversation():
     )
     assert response.status_code == 200
     assert response.json() == {'conversation_id': id}
-    assert db.conversations.get(str(id)) != None
+
+    stmt = (s.select(db.conversations.c.conversation_id).where(db.conversations.c.conversation_id == id))
+
+    with db.engine.connect() as conn:
+        conversations_result = conn.execute(stmt)
+
+    conversation = conversations_result.first()
+    assert conversation is not None
 
 def test_add_conversation_2():
-    id = int(list(db.conversations)[-1]) + 1
+    stmt = (s.select(db.conversations.c.conversation_id).order_by(s.desc('conversation_id')))
+    with db.engine.connect() as conn:
+        conversations_result = conn.execute(stmt)
+    id = conversations_result.first().conversation_id + 1
     response = client.post('movies/3/conversations/',
         json={
             'character_1_id': 49,
@@ -79,7 +93,14 @@ def test_add_conversation_2():
     )
     assert response.status_code == 200
     assert response.json() == {'conversation_id': id}
-    assert db.conversations.get(str(id)) is not None
+
+    stmt = (s.select(db.conversations.c.conversation_id).where(db.conversations.c.conversation_id == id))
+
+    with db.engine.connect() as conn:
+        conversations_result = conn.execute(stmt)
+
+    conversation = conversations_result.first()
+    assert conversation is not None
 
 def test_404_2():
     response = client.post('movies/3/conversations/',
