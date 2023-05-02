@@ -195,21 +195,25 @@ def add_conversation(movie_id: int, conversation: ConversationJson):
         conn.execute(
             db.conversations.insert().values(
                 conversation_id=conversation_id,
-                movie_id=movie_id,
                 character1_id=conversation.character_1_id,
-                character2_id=conversation.character_2_id
+                character2_id=conversation.character_2_id,
+                movie_id=movie_id,
             )
         )
+        sort = 1
         for line in conversation.lines:
             conn.execute(
                 db.lines.insert().values(
                     line_id=line_id,
-                    conversation_id=conversation_id,
                     character_id=line.character_id,
+                    movie_id=movie_id,
+                    conversation_id=conversation_id,
+                    line_sort=sort,
                     line_text=line.line_text
                 )
             )
             line_id += 1
+            sort += 1
 
     return {
         'conversation_id': conversation_id
